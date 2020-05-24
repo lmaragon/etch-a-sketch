@@ -1,16 +1,33 @@
 const grid_container = document.querySelector('.container');
+const reset_button = document.querySelector('.reset');
 
 // Create grid
-for(let i=0; i<256; i++){
-    grid_container.innerHTML += '<div class="cell"></div>';
+const create_grid = (side_length) => {
+    document.documentElement.style.setProperty("--side", side_length);
+    total_sq = side_length * side_length;
+
+    for(let i=0; i<total_sq; i++){
+        grid_container.innerHTML += '<div class="cell"></div>';
+    }
 }
 
-const cells = document.querySelectorAll('.cell');
-
 // Listen to hover
-cells.forEach(cell => {
-    cell.addEventListener('mouseover', (el) => {
-        cell.style.backgroundColor = "red";
-        
+const reset_color = () => {
+    const cells = document.querySelectorAll('.cell');
+    cells.forEach(cell => {
+        cell.addEventListener('mouseover', (el) => {
+            cell.style.backgroundColor = "red";
+        });
     });
-});
+}
+
+create_grid(16);
+reset_color();
+
+
+// Listen to reset
+reset_button.addEventListener('click', () => {
+    grid_container.innerHTML = "";
+    create_grid(10);
+    reset_color();
+})

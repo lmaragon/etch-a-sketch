@@ -1,8 +1,13 @@
+:root {
+    --side: 16;
+}
+
 .container {
     display: grid;
     background-color: lightslategray;
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(16, 30px);
+    height: 400px;
+    grid-template-columns: repeat(var(--side), 1fr);
+    grid-template-rows: repeat(var(--side), 1fr);
     gap: 1px;
     
 }
