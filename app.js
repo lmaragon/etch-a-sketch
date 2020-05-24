@@ -24,10 +24,11 @@ const reset_color = () => {
 create_grid(16);
 reset_color();
 
-
 // Listen to reset
 reset_button.addEventListener('click', () => {
+    let s = parseInt(prompt("Enter side of square", "0"));
     grid_container.innerHTML = "";
-    create_grid(10);
+    create_grid(s);
     reset_color();
+
 })
